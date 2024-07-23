@@ -1,14 +1,14 @@
 #include <Arduino.h>
+#include "AudioTools.h"
+#include "BluetoothA2DPSink.h"
 
-constexpr int LED_BUILTIN = 2;
+AnalogAudioStream out;
+BluetoothA2DPSink a2dp_sink(out);
 
 void setup() {
-    pinMode(LED_BUILTIN, OUTPUT);
+    a2dp_sink.start("MyMusic");
 }
 
 void loop() {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(1000);
-    digitalWrite(LED_BUILTIN, LOW);
     delay(1000);
 }
